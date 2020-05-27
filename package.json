@@ -1,0 +1,60 @@
+{
+  "name": "wfe-project-generator",
+  "description": "Project geberator for WFE application.",
+  "version": "1.0.0",
+  "author": "Riaz Laskar @riazXrazor",
+  "bin": {
+    "wfe": "./bin/run"
+  },
+  "bugs": "https://github.com/riazXrazor/wfe-project-generator/issues",
+  "dependencies": {
+    "@oclif/command": "^1.6.1",
+    "@oclif/config": "^1.15.1",
+    "@oclif/plugin-help": "^3.0.1",
+    "@types/jsonfile": "^6.0.0",
+    "@types/shelljs": "^0.8.8",
+    "@types/unzipper": "^0.10.3",
+    "jsonfile": "^6.0.1",
+    "shelljs": "^0.8.4",
+    "tslib": "^1.13.0",
+    "unzipper": "^0.10.11"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1.22.2",
+    "@types/node": "^10.17.24",
+    "globby": "^10.0.2",
+    "rimraf": "^3.0.2",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.9.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/riazXrazor/wfe-project-generator",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "oclif": {
+    "commands": "./lib/commands",
+    "bin": "wfe",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "riazXrazor/wfe-project-generator",
+  "scripts": {
+    "postpack": "rimraf oclif.manifest.json",
+    "prepack": "rimraf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "echo NO TESTS",
+    "version": "oclif-dev readme && git add README.md"
+  },
+  "types": "lib/index.d.ts"
+}
