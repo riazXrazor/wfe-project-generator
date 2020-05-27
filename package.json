@@ -1,7 +1,7 @@
 {
   "name": "wfe-project-generator",
   "description": "Project generator for WFE application.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Riaz Laskar @riazXrazor",
   "bin": {
     "wfe": "./bin/run"
