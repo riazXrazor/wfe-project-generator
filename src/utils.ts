@@ -15,7 +15,7 @@ const downloadAndUnzip = (
       file.close();
       fs.createReadStream(dDest)
         .pipe(unzipper.Extract({ path: uzippath }))
-        .on("finish", cb);
+        .on("end", cb);
     });
   });
 };

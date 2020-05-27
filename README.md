@@ -21,7 +21,7 @@ $ npm install -g wfe-project-generator
 $ wfe COMMAND
 running command...
 $ wfe (-v|--version|version)
-wfe-project-generator/1.0.0 win32-x64 node-v14.0.0
+wfe-project-generator/1.0.1 win32-x64 node-v14.0.0
 $ wfe --help [COMMAND]
 USAGE
   $ wfe COMMAND
@@ -65,7 +65,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src\commands\init.ts](https://github.com/riazXrazor/wfe-project-generator/blob/v1.0.0/src\commands\init.ts)_
+_See code: [src\commands\init.ts](https://github.com/riazXrazor/wfe-project-generator/blob/v1.0.1/src\commands\init.ts)_
 
 ## `wfe updateconfig`
 
@@ -79,5 +79,5 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src\commands\updateconfig.ts](https://github.com/riazXrazor/wfe-project-generator/blob/v1.0.0/src\commands\updateconfig.ts)_
+_See code: [src\commands\updateconfig.ts](https://github.com/riazXrazor/wfe-project-generator/blob/v1.0.1/src\commands\updateconfig.ts)_
 <!-- commandsstop -->

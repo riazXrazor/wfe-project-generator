@@ -4,6 +4,7 @@ const shell = require("shelljs");
 const jsonfile = require("jsonfile");
 
 import { downloadAndUnzip } from "../utils";
+import { api_config, app_config } from "../jsons";
 
 export default class Init extends Command {
   static description = "Initializes and setup a WFE project.";
@@ -37,7 +38,7 @@ export default class Init extends Command {
     const pkgjson = `${projectdir}/package.json`;
     const assets = `${projectdir}/src/assets`;
     const zippath = `${assets}/${appid}.zip`;
-    const jsonzippath = `${assets}/jsons.zip`;
+    const jsonzippath = `${assets}/jsons`;
 
     const wfeconfigfile = `${projectdir}/wfeconfig.json`;
     const wfeconfigdata = {
@@ -48,8 +49,6 @@ export default class Init extends Command {
 
     // wfe portal config url
     const spliterUrl = `https://sfv2-wfe-jsonsplitter-dev04.inadev.net:9098/v1/wfe_application?application_id=${appid}&device_type=${apptype}`;
-    // jsons config url
-    const jsonsfile = `https://srv-file5.gofile.io/download/WkUARu/jsons.zip`;
 
     await jsonfile.writeFile(wfeconfigfile, wfeconfigdata);
 
@@ -83,14 +82,25 @@ export default class Init extends Command {
 
     jsonfile.writeFileSync(pkgjson, packagejson, { spaces: 2, EOL: "\r\n" });
 
+    shell.mkdir(jsonzippath);
+
+    jsonfile.writeFileSync(`${jsonzippath}/api_config.json`, api_config, {
+      spaces: 2,
+      EOL: "\r\n",
+    });
+    jsonfile.writeFileSync(`${jsonzippath}/app_config.json`, app_config, {
+      spaces: 2,
+      EOL: "\r\n",
+    });
+
     cli.action.start("fetching json for application");
     // download wfe configs
     downloadAndUnzip(spliterUrl, zippath, `${assets}/config`, () => {
-      downloadAndUnzip(jsonsfile, jsonzippath, `${assets}/`, () => {
-        cli.action.stop();
+      // downloadAndUnzip(jsonsfile, jsonzippath, `${assets}/`, () => {
+      cli.action.stop();
 
-        console.log("Init complete!!");
-      });
+      console.log("Init complete!!");
+      // });
     });
   }
 }

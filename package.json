@@ -1,7 +1,7 @@
 {
   "name": "wfe-project-generator",
-  "description": "Project geberator for WFE application.",
-  "version": "1.0.0",
+  "description": "Project generator for WFE application.",
+  "version": "1.0.2",
   "author": "Riaz Laskar @riazXrazor",
   "bin": {
     "wfe": "./bin/run"
@@ -14,6 +14,7 @@
     "@types/jsonfile": "^6.0.0",
     "@types/shelljs": "^0.8.8",
     "@types/unzipper": "^0.10.3",
+    "cli-ux": "^5.4.6",
     "jsonfile": "^6.0.1",
     "shelljs": "^0.8.4",
     "tslib": "^1.13.0",
