@@ -1,6 +1,6 @@
 # wfe-project-generator
 
-Project generator for WFE application.
+Project generator for WFE application (angular).
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/wfe-project-generator.svg)](https://npmjs.org/package/wfe-project-generator)
@@ -9,6 +9,7 @@ Project generator for WFE application.
 
 <!-- toc -->
 
+- [wfe-project-generator](#wfe-project-generator)
 - [Usage](#usage)
 - [Commands](#commands)
 <!-- tocstop -->
@@ -36,8 +37,8 @@ USAGE
 <!-- commands -->
 
 - [`wfe help [COMMAND]`](#wfe-help-command)
-- [`wfe init`](#wfe-init-file)
-- [`wfe updateconfig`](#wfe-updateconfig-file)
+- [`wfe init`](#wfe-init)
+- [`wfe updateconfig`](#wfe-updateconfig)
 
 ## `wfe help [COMMAND]`
 
@@ -58,28 +59,28 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.0.1
 
 ## `wfe init`
 
-describe the command here
+Initializes and setup a WFE project.
 
 ```
 USAGE
   $ wfe init
 
 OPTIONS
-  -h, --help       show CLI help
+  -h, --help  show CLI help
 ```
 
 _See code: [src\commands\init.ts](https://github.com/riazXrazor/wfe-project-generator/blob/v1.0.0/src\commands\init.ts)_
 
 ## `wfe updateconfig`
 
-describe the command here
+Update wfe config json of the application.
 
 ```
 USAGE
   $ wfe updateconfig
 
 OPTIONS
-  -h, --help       show CLI help
+  -h, --help  show CLI help
 ```
 
 _See code: [src\commands\updateconfig.ts](https://github.com/riazXrazor/wfe-project-generator/blob/v1.0.0/src\commands\updateconfig.ts)_
