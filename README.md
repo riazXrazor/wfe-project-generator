@@ -8,16 +8,14 @@ Project generator for WFE application (angular).
 [![License](https://img.shields.io/npm/l/wfe-project-generator.svg)](https://github.com/riazXrazor/wfe-project-generator/blob/master/package.json)
 
 <!-- toc -->
-
-- [wfe-project-generator](#wfe-project-generator)
-- [Usage](#usage)
-- [Commands](#commands)
+* [wfe-project-generator](#wfe-project-generator)
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g wfe-project-generator
 $ wfe COMMAND
@@ -29,16 +27,14 @@ USAGE
   $ wfe COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-
-- [`wfe help [COMMAND]`](#wfe-help-command)
-- [`wfe init`](#wfe-init)
-- [`wfe updateconfig`](#wfe-updateconfig)
+* [`wfe help [COMMAND]`](#wfe-help-command)
+* [`wfe init`](#wfe-init)
+* [`wfe updateconfig`](#wfe-updateconfig)
 
 ## `wfe help [COMMAND]`
 
@@ -84,5 +80,4 @@ OPTIONS
 ```
 
 _See code: [src\commands\updateconfig.ts](https://github.com/riazXrazor/wfe-project-generator/blob/v1.0.0/src\commands\updateconfig.ts)_
-
 <!-- commandsstop -->
