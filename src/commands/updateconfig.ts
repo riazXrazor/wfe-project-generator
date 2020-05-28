@@ -3,6 +3,7 @@ import cli from "cli-ux";
 const shell = require("shelljs");
 const fs = require("fs");
 const jsonfile = require("jsonfile");
+const boxen = require("boxen");
 
 import { downloadAndUnzip } from "../utils";
 
@@ -19,11 +20,17 @@ export default class Updateconfig extends Command {
     // const { args, flags } = this.parse(Updateconfig);
     const wfeconfigfile = `./wfeconfig.json`;
     if (!fs.existsSync(wfeconfigfile)) {
-      shell.echo("WFE project not initialized.");
-      shell.echo("use `wfe init`to initialize");
+      shell.echo(
+        boxen(
+          `WFE project not initialized.
+use "wfe init" to initialize
+      `,
+          { padding: 1, borderColor: "red", align: "center" }
+        )
+      );
       shell.exit(1);
     }
-
+    cli.action.start("Updating");
     const wfeconfigdata = jsonfile.readFileSync(wfeconfigfile);
 
     const appid = wfeconfigdata.application_id;
@@ -37,11 +44,16 @@ export default class Updateconfig extends Command {
     // wfe portal config url
     const spliterUrl = `https://sfv2-wfe-jsonsplitter-dev04.inadev.net:9098/v1/wfe_application?application_id=${appid}&device_type=${apptype}`;
 
-    cli.action.start("updating json for application");
     // download wfe configs
     downloadAndUnzip(spliterUrl, zippath, `${assets}/config`, () => {
       cli.action.stop();
-      console.log("config update complete!!");
+      shell.echo(
+        boxen(`Update completed successfully!!`, {
+          padding: 1,
+          borderColor: "green",
+          align: "center",
+        })
+      );
     });
   }
 }
