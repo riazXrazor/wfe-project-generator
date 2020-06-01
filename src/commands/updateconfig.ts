@@ -1,3 +1,4 @@
+import { join } from "path";
 import { Command, flags } from "@oclif/command";
 import cli from "cli-ux";
 const shell = require("shelljs");
@@ -37,15 +38,14 @@ use "wfe init" to initialize
 
     const apptype = wfeconfigdata.device_type;
 
-    const projectdir = `./`;
-    const assets = `${projectdir}/src/assets`;
-    const zippath = `${assets}/${appid}.zip`;
+    const projectdir = join(".");
+    const assets = join(projectdir, `src`, `assets`);
 
     // wfe portal config url
     const spliterUrl = `https://sfv2-wfe-jsonsplitter-dev04.inadev.net:9098/v1/wfe_application?application_id=${appid}&device_type=${apptype}`;
 
     // download wfe configs
-    downloadAndUnzip(spliterUrl, zippath, `${assets}/config`, () => {
+    downloadAndUnzip(spliterUrl, `${appid}.zip`, join(assets, "config"), () => {
       cli.action.stop();
       shell.echo(
         boxen(`Update completed successfully!!`, {

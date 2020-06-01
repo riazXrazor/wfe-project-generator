@@ -1,7 +1,7 @@
 {
   "name": "wfe-project-generator",
   "description": "Project generator for WFE application.",
-  "version": "1.0.6",
+  "version": "1.2.0",
   "author": "Riaz Laskar @riazXrazor",
   "bin": {
     "wfe": "./bin/run"
@@ -14,20 +14,24 @@
     "@types/jsonfile": "^6.0.0",
     "@types/shelljs": "^0.8.8",
     "@types/unzipper": "^0.10.3",
+    "asciiart-logo": "^0.2.6",
     "boxen": "^4.2.0",
     "cli-ux": "^5.4.6",
     "initialism": "^1.0.1",
     "initials": "^3.1.0",
+    "inquirer": "^7.1.0",
     "jsonfile": "^6.0.1",
+    "rimraf": "^3.0.2",
+    "semver": "^7.3.2",
     "shelljs": "^0.8.4",
     "tslib": "^1.13.0",
-    "unzipper": "^0.10.11"
+    "unzipper": "^0.10.11",
+    "update-notifier": "^4.1.0"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.22.2",
     "@types/node": "^10.17.24",
     "globby": "^10.0.2",
-    "rimraf": "^3.0.2",
     "ts-node": "^8.10.1",
     "typescript": "^3.9.3"
   },
@@ -51,7 +55,10 @@
     "bin": "wfe",
     "plugins": [
       "@oclif/plugin-help"
-    ]
+    ],
+    "hooks": {
+      "init": "./lib/hooks/init/splash"
+    }
   },
   "repository": "riazXrazor/wfe-project-generator",
   "scripts": {
