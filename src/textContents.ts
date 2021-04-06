@@ -79,36 +79,36 @@ export class WfeRenderComponent implements OnInit {
 const wferendercomponenthtml = `<app-step-renderer [stepId]="stepId"></app-step-renderer>`;
 
 const appcomponentts = `
-import { Component } from '@angular/core';
-import { AppDataService, ApiDataService } from '@ng/cee-core';
-import { Router, Event as NavigationEvent, NavigationStart } from '@angular/router';
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { WfeStepComponent } from "./wfe-step/wfe-step.component";
+import { WfeStepNotFoundComponent } from "./wfe-step-not-found/wfe-step-not-found.component";
+import { WfeAccessDeniedComponent } from "./wfe-access-denied/wfe-access-denied.component";
+
+const routes: Routes = [
+  { path: '', redirectTo: 'DEFAULT_ROUTE', pathMatch: 'full' },
+  {
+    path: "wfe/step/404",
+    component: WfeStepNotFoundComponent,
+    pathMatch: "full",
+  },
+  {
+    path: "wfe/step/403",
+    component: WfeAccessDeniedComponent,
+    pathMatch: "full",
+  },
+  { path: ":stepId", component: WfeStepComponent },
+];
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: "enabled", // Add options right here
+    }),
+  ],
+  exports: [RouterModule],
 })
-export class AppComponent {
-  title = 'wfe-app';
-  constructor(
-    private router: Router,
-    private appDataService: AppDataService,
-    private apiDataService: ApiDataService,) {
-    if (window.location.pathname === '/') {
-      this.appDataService.removeAllAppData();
-      this.apiDataService.removeAllApiData();
-      // resetStores();
-      // const storage = persistState();
-      // storage.destroy(); // Stop sync the state
-      // storage.clearStore(); // Clear the storage
-      // storage.clearStore('app-data');
-      window.sessionStorage.clear();
-      this.router.navigateByUrl('/wfe/step/DEFAULT_STEP_ID', { skipLocationChange: true });
-
-
-    }
-  }
-}
-`;
+export class AppRoutingModule {}`;
 
 export {
   appmodulets,
